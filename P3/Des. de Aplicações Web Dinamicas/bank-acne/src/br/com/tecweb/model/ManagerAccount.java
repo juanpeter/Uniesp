@@ -17,9 +17,24 @@ public class ManagerAccount {
 		account.setAgency(001);
 		account.setNumber(100);
 		account.setClient(client);
-		account.setBalance(9000.00);
+		account.setBalance(1000.00);
 		
-		System.out.println(client);
-		System.out.println(account);
+		Client client2 = new Client();
+		client2.setId(2L);
+		client2.setEmail("sarah@gmail.com");
+		client2.setName("Sarah Gabriela");
+		client2.setPhone("988073483");
+		
+		Account account2 = new Account();
+		account2.setId(2L);
+		account2.setAgency(001);
+		account2.setNumber(102);
+		account2.setClient(client);
+		account2.setBalance(1000.00);
+		
+		account.transfer(account2, 2000.00);
+		
+		System.out.println(account.getBalance());
+		System.out.println(account2.getBalance());
 	}
 }
