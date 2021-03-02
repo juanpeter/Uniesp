@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1603492924084
+Build-Jdk: 1.8.0_251
+Built-By: mac
+Bundle-ManifestVersion: 2
+Bundle-Name: AulaInterfarce General Client Code
+Bundle-SymbolicName: com.mycompany.aulainterfarce
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.mycompany.aulainterfarce;version="1.0.0.SNAPSHOT"
+Import-Package: net.java.html;version="[1.7,2)",net.java.html.boot;versi
+ on="[1.7,2)",org.netbeans.html.json.spi;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

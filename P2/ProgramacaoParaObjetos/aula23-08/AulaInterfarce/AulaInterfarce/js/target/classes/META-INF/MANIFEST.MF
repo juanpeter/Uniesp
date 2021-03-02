@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1603492885333
+Build-Jdk: 1.8.0_251
+Built-By: mac
+Bundle-ManifestVersion: 2
+Bundle-Name: AulaInterfarce JavaScript Libraries
+Bundle-SymbolicName: com.mycompany.aulainterfarce.js
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.mycompany.aulainterfarce.js;version="1.0.0.SNAPSHOT"
+Tool: Bnd-2.1.0.20130426-122213

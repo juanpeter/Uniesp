@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="aula04-09/src/main/java"/>
+	<classpathentry kind="src" path="aula11-09-2/src/main/java"/>
+	<classpathentry kind="src" path="aula11-09/src/main/java"/>
+	<classpathentry kind="src" path="aula18-09/src"/>
+	<classpathentry kind="src" path="aula25-09/src"/>
+	<classpathentry kind="src" path="aula25-9-2/src"/>
+	<classpathentry kind="src" path="aula28-08/src"/>
+	<classpathentry kind="src" path="TED01/src"/>
+	<classpathentry kind="src" path="TED02/src"/>
+	<classpathentry kind="src" path="TED03/src"/>
+	<classpathentry kind="output" path="TED01/bin"/>
+</classpath>
