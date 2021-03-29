@@ -4,7 +4,7 @@ public class UsuarioFactory {
 	
 	public UsuarioFactory() {}
 	
-	public Usuario getGenero(String nome, String tipoGenero) {
+	public Usuario getUsuario(String nome, String tipoGenero) {
 		if (tipoGenero.equals("Masculino")) {
 			return new UsuarioMasculino(nome);
 		}
