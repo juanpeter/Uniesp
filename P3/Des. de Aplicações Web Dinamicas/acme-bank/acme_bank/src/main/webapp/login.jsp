@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +18,7 @@
 			<br>
 			<label for="password">Senha</label>
 			<input id="password" name="password" type="password" placeholder="Informe sua senha"/>
+			<br>
 			<br>
 			<input type="submit" value="Login" id="btn-login"/>
 		</form>

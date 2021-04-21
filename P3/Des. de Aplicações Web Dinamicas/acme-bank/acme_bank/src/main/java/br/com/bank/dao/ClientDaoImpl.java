@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.servlet.RequestDispatcher;
 
 import br.com.bank.model.Client;
 import br.com.bank.util.JPAUtil;
@@ -54,19 +55,27 @@ public class ClientDaoImpl implements ClientDao {
 	}
 
 	@Override
-	public void save(Client client) {
+	public boolean save(Client client) {
 		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		try {
-			entityManager.persist(client);
-			entityManager.getTransaction().commit();
-			entityManager.close();
-		} catch (NoResultException e){
-			e.getMessage();
-			entityManager.close();			
+		if (!checkExistingByEmail(client) && !checkExistingByPhone(client)) {
+			try {					
+					
+				entityManager.persist(client);
+				entityManager.getTransaction().commit();
+
+				entityManager.close();
+				return true;
+				
+			} catch (NoResultException e){
+				e.getMessage();
+				entityManager.close();
+				return false;
+			}
+
 		}
-		
+		return false;
 	}
 
 	@Override
@@ -75,7 +84,9 @@ public class ClientDaoImpl implements ClientDao {
 		entityManager.getTransaction().begin();
 		
 		try {
-			entityManager.createNamedQuery("Client.deleteById", Client.class);
+			Client deletedClient = entityManager.find(Client.class, idClient);
+			entityManager.remove(deletedClient);
+			entityManager.getTransaction().commit();
 			entityManager.close();
 						
 		} catch (NoResultException e){
@@ -83,6 +94,33 @@ public class ClientDaoImpl implements ClientDao {
 			entityManager.close();			
 		}
 		
+	}
+	
+	public boolean checkExistingByEmail(Client client) {
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		try {
+			entityManager.createNamedQuery("Client.getByEmail", Client.class)
+			.setParameter("email", client.getEmail())
+			.getSingleResult();
+			return true;
+		} catch (NoResultException e){
+			return false;
+		}
+	}
+	
+	public boolean checkExistingByPhone(Client client) {
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+		try {
+			entityManager.createNamedQuery("Client.getByPhone", Client.class)
+			.setParameter("phone", client.getPhone())
+			.getSingleResult();	
+			return true;
+		} catch (NoResultException e){
+			return false;
+		} 
 	}
 
 }

@@ -9,19 +9,15 @@
 <body>
 <%-- <% String user = (String) request.getAttribute("user"); %>
 	<div align="center">
-		<p align="center">Seja bem vindo, Sr. <%=userl %></p>
+		<p align="center">Seja bem vindo, Sr. <%=user %></p>
 	</div> --%>
-	<div align="center">
+<%-- 	<div align="center">
 		<c:if test="${user != null}">
 			<p>Seja bem vindo Sr. <Strong>${user}</Strong>
 		</c:if>
-	</div>
+	</div> --%>
 		<div align="center">
-		<c:if test="${user != null}">
-			<p>Nome <Strong>${client.name}</Strong>
-			<p>Email <Strong>${client.email}</Strong>
-			<p>Fone <Strong>${client.phone}</Strong>
-		</c:if>
-	</div>
+			<h1>Sucesso no cadastro</h1>
+		</div>
 </body>
 </html>

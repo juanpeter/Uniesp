@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if (user.equals("cbgomes@gmail.com") && password.equals("123")) {
 						
-			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
 			request.setAttribute("user", user);
 
 			rd.forward(request, response);

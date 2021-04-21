@@ -25,8 +25,8 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public void save(Client client) {
-		this.dao.save(client);
+	public boolean save(Client client) {
+		return this.dao.save(client);
 	}
 
 	@Override
@@ -34,4 +34,5 @@ public class ClientServiceImpl implements ClientService {
 		this.dao.deleteById(idClient);
 		
 	}
+	
 }

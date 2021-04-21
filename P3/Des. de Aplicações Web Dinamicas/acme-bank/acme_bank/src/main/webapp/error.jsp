@@ -8,9 +8,7 @@
 </head>
 <body>
 	<div align="center">
-		<c:if test="${error != null}">
-			<p>${error}</p>
-		</c:if>
+		<h1>Erro no cadastro</h1>
 	</div>
 </body>
 </html>

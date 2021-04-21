@@ -10,7 +10,7 @@ public interface ClientService {
 	
 	public List<Client> getAll();
 	
-	public void save(Client client);
+	public boolean save(Client client);
 	
 	public void deleteById(Long idClient);
 }

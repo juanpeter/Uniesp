@@ -9,42 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.bank.model.Client;
 import br.com.bank.service.ClientServiceImpl;
 
-@WebServlet("/clientServlet")
-public class ClientServlet extends HttpServlet {
+@WebServlet("/clientDeleteServlet")
+public class ClientDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private ClientServiceImpl service;
 
-	public ClientServlet() {
+    public ClientDeleteServlet() {
 		this.service = new ClientServiceImpl();
+    }
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		RequestDispatcher rd = request.getRequestDispatcher("list_clients.jsp");
+		rd.forward(request, response);
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Responded to client").append(request.getContextPath());
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
+		System.out.println(request.getParameter("idCliente"));
 		
-		Client client = new Client();
+		Long clientId = Long.parseLong(request.getParameter("idCliente"));
 		
-		client.setName(name);
-		client.setEmail(email);
-		client.setPhone(phone);
-				
-		if(this.service.save(client)){
-			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
-			rd.forward(request, response);
-		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-			rd.forward(request, response);
-		}
+		this.service.deleteById(clientId);
+		
 		
 	}
 
