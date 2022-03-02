@@ -1,0 +1,72 @@
+SELECT count(DISTINCT pd.cliente) as 'Número de Clientes'
+FROM cliente as cl, pedido as pd
+WHERE cl.codigo = pd.cliente
+
+SELECT count(*)
+FROM cliente
+WHERE cidade = 17;
+
+SELECT COUNT(*)
+FROM cidade
+WHERE pais != 'BRA';
+
+SELECT COUNT(*) AS 'Funcionários com email'
+FROM funcionario
+WHERE email IS NOT NULL;
+
+SELECT COUNT(*) AS 'Número de cidades'
+FROM cidade;
+
+-- OU (Dependendo da definição da regra de negócio)
+ 
+SELECT COUNT(DISTINCT cidade) AS 'Cidades atendidas'
+FROM cliente;
+
+SELECT SUM(salario) AS 'Soma salarial'
+FROM funcionario;
+
+SELECT AVG(frete) AS 'Preço médio de venda'
+FROM pedido
+
+SELECT SUM(frete) AS 'Soma de pedidos marítimos'
+FROM pedido
+WHERE via = 'M'
+
+SELECT SUM(salario) AS 'Soma de salários'
+FROM funcionario
+WHERE sexo = 'M'
+   AND funcao NOT IN (10,11);
+
+SELECT AVG(DATEDIFF(YEAR, datanasc, CURRENT_TIMESTAMP)) AS 'Média de idade'
+FROM funcionario
+WHERE sexo = 'F'
+    AND setor IN ('COV', 'RHM');
+
+SELECT AVG(salario) AS 'Média de salário'
+FROM funcionario
+WHERE sexo = 'F'
+    AND salario BETWEEN 1000 AND 2000
+    AND setor NOT IN ('PRS', 'MKT');
+
+SELECT AVG(salario) AS 'Média de salários'
+FROM funcionario
+WHERE funcao NOT IN (10,11)
+    AND estcivil != 'C';
+
+SELECT AVG(venda) AS 'Preço médio'
+FROM produto
+WHERE tipo = 1;
+
+SELECT MIN(datanasc) AS 'Data nascimento mais antiga'
+FROM funcionario
+WHERE sexo = 'F';
+
+SELECT max(venda) AS 'Produto mais caro'
+FROM produto;
+
+SELECT MAX(datapedid) AS 'Pedido mais recente'
+FROM pedido
+
+SELECT MONTH(max(datapedid))  AS 'Mês pedido mais antigo aéreo'
+FROM pedido
+WHERE via = 'A';

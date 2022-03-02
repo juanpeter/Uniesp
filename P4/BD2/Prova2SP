@@ -1,0 +1,4 @@
+CREATE PROCEDURE buscarPacientePorCPF @cpf char(11)
+AS
+SELECT * FROM PACIENTE
+WHERE CPF = @cpf
