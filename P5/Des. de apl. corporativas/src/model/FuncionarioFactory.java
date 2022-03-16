@@ -10,7 +10,8 @@ public class FuncionarioFactory {
 			String idade,
 			String genero,
 			String departamento,
-			Boolean externo) {
+			Boolean externo
+			) {
 		if (externo.equals(true)) {
 			return new FuncionarioExterno(
 					id,
