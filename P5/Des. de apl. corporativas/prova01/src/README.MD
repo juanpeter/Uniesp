@@ -6,3 +6,7 @@
 # Facade
 - Implementar o padrão Facade permite utilizar rapidamente as funcionalidades desejadas em um mar de funcionalidades
 - Permite emular os Sistemas Operacionais mais utilizados no mercado brasileiro sem se preocupar com os outros sistemas menos utilizados
+
+# Builder
+- Implementar o padrão builder permitiu a montagem da classe subway, que em sí é composta de diversas classes
+- O objeto Subway, sendo complexo, é mais fácilmente montado utilizando a classe SubwayBuilder, ao invés de ser inicializada por um construtor complexo.
