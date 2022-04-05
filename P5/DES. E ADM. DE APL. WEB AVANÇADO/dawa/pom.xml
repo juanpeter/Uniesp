@@ -14,9 +14,17 @@
 	<name>dawa</name>
 	<description>Projeto para cadeira de DES. E ADM. DE APL. WEB AVANÇADO</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
+		<model-mapper>3.0.0</model-mapper>
 	</properties>
 	<dependencies>
+	
+		<dependency>
+		    <groupId>org.modelmapper</groupId>
+		    <artifactId>modelmapper</artifactId>
+		    <version>${model-mapper}</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

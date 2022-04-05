@@ -25,5 +25,6 @@ public class DawaEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String descricao;
+	private Long senha;
 	
 }
