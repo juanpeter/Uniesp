@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+import com.projeto.dawa.exception.EntityNotFoundException;
 import com.projeto.dawa.exception.MessageErrorException;
 import com.projeto.dawa.exception.ResourceNotFoundException;
 
@@ -16,6 +17,18 @@ public class ControllerExceptionHandler {
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<MessageErrorException> resourceNotFoundException(ResourceNotFoundException ex, WebRequest req) {
+		MessageErrorException message = new MessageErrorException(
+			HttpStatus.NOT_FOUND.value(),
+			new Date(),
+			ex.getMessage(),
+			req.getDescription(false)
+		);
+		
+		return new ResponseEntity<MessageErrorException>(message, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(EntityNotFoundException.class)
+	public ResponseEntity<MessageErrorException> entityNotFoundException(ResourceNotFoundException ex, WebRequest req) {
 		MessageErrorException message = new MessageErrorException(
 			HttpStatus.NOT_FOUND.value(),
 			new Date(),

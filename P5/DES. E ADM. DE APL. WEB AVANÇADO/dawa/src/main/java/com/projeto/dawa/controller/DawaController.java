@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.dawa.entity.request.DawaRequest;
+import com.projeto.dawa.exception.EntityNotFoundException;
 import com.projeto.dawa.service.ServiceDawa;
 
 @RestController
