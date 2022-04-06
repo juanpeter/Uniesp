@@ -1,7 +1,5 @@
 package com.projeto.dawa.controller;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.dawa.entity.request.DawaRequest;
-import com.projeto.dawa.entity.response.DawaResponse;
 import com.projeto.dawa.service.ServiceDawa;
 
 @RestController
@@ -26,7 +23,6 @@ public class DawaController {
 	}
 	
 	public final ServiceDawa serviceDawa;
-
 
 	@PostMapping
 	public ResponseEntity<?> salvar(@RequestBody DawaRequest dawa) {
@@ -42,13 +38,21 @@ public class DawaController {
 	
 	@GetMapping("/buscar_por_id/{id}")
 	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
-		return ResponseEntity.ok(this.serviceDawa.buscarPorId(id));
+		try {
+			return ResponseEntity.ok(this.serviceDawa.buscarPorId(id));
+		} catch(Exception e){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@DeleteMapping("/deletar/{id}")
 	public ResponseEntity<?> deletarPorId(@PathVariable Long id) {
-		this.serviceDawa.deletarPorId(id);
-		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		try {
+			this.serviceDawa.deletarPorId(id);
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		} catch(Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@PutMapping("/atualizar/{id}")
