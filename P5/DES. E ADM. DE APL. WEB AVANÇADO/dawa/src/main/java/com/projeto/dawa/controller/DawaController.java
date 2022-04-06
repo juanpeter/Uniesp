@@ -38,11 +38,7 @@ public class DawaController {
 	
 	@GetMapping("/buscar_por_id/{id}")
 	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
-		try {
-			return ResponseEntity.ok(this.serviceDawa.buscarPorId(id));
-		} catch(Exception e){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		return ResponseEntity.ok(this.serviceDawa.buscarPorId(id));
 	}
 
 	@DeleteMapping("/deletar/{id}")
@@ -58,7 +54,6 @@ public class DawaController {
 	@PutMapping("/atualizar/{id}")
 	public ResponseEntity<?> atualizar(@RequestBody DawaRequest dawa, @PathVariable Long id) {
 		this.serviceDawa.atualizar(dawa, id);
-		
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 }

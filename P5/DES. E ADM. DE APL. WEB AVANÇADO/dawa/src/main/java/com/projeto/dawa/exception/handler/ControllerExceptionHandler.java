@@ -13,7 +13,7 @@ import com.projeto.dawa.exception.ResourceNotFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
-
+	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<MessageErrorException> resourceNotFoundException(ResourceNotFoundException ex, WebRequest req) {
 		MessageErrorException message = new MessageErrorException(
@@ -25,7 +25,7 @@ public class ControllerExceptionHandler {
 		
 		return new ResponseEntity<MessageErrorException>(message, HttpStatus.NOT_FOUND);
 	}
-	
+		
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<MessageErrorException> globalExceptionHandler(Exception ex, WebRequest req) {
 		MessageErrorException message = new MessageErrorException (
