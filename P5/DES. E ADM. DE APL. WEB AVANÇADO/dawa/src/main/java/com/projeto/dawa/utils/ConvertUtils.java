@@ -1,11 +1,5 @@
 package com.projeto.dawa.utils;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Component;
-
 @SuppressWarnings("preview")
 @Component
 public record ConvertUtils<T> (ModelMapperConfig modelMapperConfig) {
