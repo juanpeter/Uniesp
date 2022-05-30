@@ -1,4 +1,4 @@
-package entity;
+package com.pcas.pandemicCombatAidSystem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,15 +24,11 @@ public class HospitalEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//Um hospital deve ter um nome, endereço, cnpj,
-	//localização (latitude, longitude, etc.)
 	private Long id;
 	private String nome;
 	private String endereco;
 	private String cnpj;
 	private String localizacao;
-	
-	//Ao adicionar o hospital, junto deve ser adicionado seus recursos atuais bem como seu percentual de ocupação.
 	private String[] recursos;
 	private Double percentualOcupacao;
 }

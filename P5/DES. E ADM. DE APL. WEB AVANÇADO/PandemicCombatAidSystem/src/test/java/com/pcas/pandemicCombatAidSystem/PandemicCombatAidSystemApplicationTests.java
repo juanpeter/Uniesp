@@ -1,4 +1,4 @@
-package PandemicCombatAidSystem.PandemicCombatAidSystem;
+package com.pcas.pandemicCombatAidSystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
