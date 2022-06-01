@@ -30,8 +30,6 @@ public class IntercambioEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "intercambio_id")
-	private Long intercambioId;
 	private Date intercambioTimestamp;
 	@ManyToMany
 	@JoinColumn(name = "recurso_id")
