@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pcas.pandemicCombatAidSystem.entity.request.HospitalRequest;
+import com.pcas.pandemicCombatAidSystem.entity.request.IntercambioRequest;
 import com.pcas.pandemicCombatAidSystem.service.HospitalService;
 
 @RestController
@@ -53,4 +54,10 @@ public class HospitalController {
 //
 //	Os hospitais poderão trocar recursos entre eles. Para isso, eles devem respeitar a tabela de valores abaixo, onde o valor do recurso é descrito em termos de pontos. Ambos os hospitais deverão oferecer a mesma quantidade de pontos. 
 
+	@PostMapping("intercambioRecursos")
+	public ResponseEntity<?> intercambioRecursos(@RequestBody IntercambioRequest request) {
+		this.hs.intercambioRecursos(request);
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+	}
 }
